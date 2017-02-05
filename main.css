@@ -1,0 +1,24 @@
+header{
+	font-family: "Tempus Sans ITC", sans-serif;
+   color: #eeeeee;
+   font-size: 50px;
+	height:140px;
+	position:relative;
+	top:10;
+	width:100%;
+	padding: 10px 0px 0px 0px;
+	margin: 0;
+}
+
+footer{
+   background: #ffffff; 
+	color: #555555;	
+   text-align: center;  
+	position:relative;
+	padding: 10px 0px;
+	border-top: 1px solid #cccccc;
+	bottom:0;
+	width:100%;
+	margin: 0;
+   font-size: 80%; 
+}

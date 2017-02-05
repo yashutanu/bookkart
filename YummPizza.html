@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Yumm Pizza</title>
+		<link type="text/css" rel="stylesheet" href="main.css">
+		<link type="text/css" rel="stylesheet" href="home.css">
+		<script type="text/javascript">
+			var bgimages=new Array();
+			bgimages[0]="images/pizza1.jpg";
+			bgimages[1]="images/pizza2.jpg";
+			bgimages[2]="images/pizza3.jpg";
+			bgimages[3]="images/pizza4.jpg";
+			bgimages[4]="images/pizza5.jpg";
+						
+			//preload images
+			var pathToImg=new Array();
+			
+			for (i=0;i<bgimages.length;i++){
+				pathToImg[i]=new Image();
+				pathToImg[i].src=bgimages[i];
+			}
+
+			var inc=-1;
+
+			function bgSlide(){
+				if (inc<bgimages.length-1)
+					inc++;
+				else
+					inc=0;
+				document.body.background=pathToImg[inc].src;
+			}
+
+			if (document.all||document.getElementById)
+				window.onload=new Function('setInterval("bgSlide()",3000)');
+				
+				
+		</script>
+	</head>
+
+	<body>
+		<header align="center"><b>Yumm Pizza<b></header>
+		<h2  align="center" style="color:blue;font-size:20px;font-family:algerian;"><a href="PreviousOrders.php">Previous Orders</a></h2>
+		
+		<center>	
+			<form method="post" id="user" action="order.php"> 
+				<div id="signindiv">
+					<b><u>CUSTOMER DETAILS</u></b>
+					<br><p align="left">
+					<b>NAME</b>&nbsp;<input id="name" name="name" type="text" /><t> &nbsp;&nbsp;
+					<b>CONTACT NO.</b>&nbsp;<input type="text" name="contact" id="contact" minlength="10" maxlength="10" />
+					<br><br>					
+					</p>
+  	
+  					<b><u>PIZZA DETAILS</u></b><br>
+					
+					<p align="left"><b>SIZE</b>&nbsp;&nbsp;&nbsp;&nbsp;
+				   <input type="radio" name="size" value="small">small(Rs.50)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				   <input type="radio" name="size" value="medium">medium(Rs.150)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				   <input type="radio" name="size" value="large">large(Rs.300)
+				   </p>
+				   <br>
+				   <p align="left"><b>CRUST</b>&nbsp;&nbsp;&nbsp;&nbsp;
+				   <input type="radio" name="crust" value="classic">classic(Rs.10)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				   <input type="radio" name="crust" value="thin">thin(Rs.20)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				   <input type="radio" name="crust" value="extra cheese">extra cheese(Rs.50)
+				   </p>
+				   <br>
+				   <p align="left"><b>TOPPINGS (Rs.5 each)</b>&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" name="topping[]" value="onion">onion&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" name="topping[]" value="mushroom">mushroom&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" name="topping[]" value="capsicum">capsicum&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" name="topping[]" value="babycorn">babycorn&nbsp;&nbsp;&nbsp;<br>
+						<input type="checkbox" name="topping[]" value="paneer">paneer&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" name="topping[]" value="olives">olives&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" name="topping[]" value="jalapeno">jalapeno&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" name="topping[]" value="mexican herbs">mexican herbs
+				   </p>
+				   <br>
+				   <p align="left"><b>QUANTITY</b>&nbsp;<input type="number" value="1" min="1" max="20" name="quantity"/></p>
+				   <br>
+				   <input type="submit" value="Done" onclick="calculate()" />
+					<br><br>					
+
+				</div>
+			</form>
+			<br><br>
+		</center>	
+		
+		
+		<footer>   
+			&copy; 2017, Yumm Pizza<br>   
+		</footer>
+	</body>
+</html>
